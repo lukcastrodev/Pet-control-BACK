@@ -8,15 +8,15 @@ class Clientes extends Model
 {
     protected $fillable = [
         'nome',
-        'email',
-        'telefone',
-        'cpf',
-        'data_nascimento',
-        'cep',
-        'endereco',
-        'numero',
-        'complemento',
-        'cidade',
-        'estado',
+        'email', 
+        'telefone', 
+        'cpf', 
+        'data_nascimento', 
+        'cep', 
+        'endereco', 
+        'numero', 
+        'complemento', 
+        'cidade', 
+        'estado'
     ];
 }

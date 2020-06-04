@@ -9,13 +9,17 @@ class ClientesController extends Controller
 {
     public function getCliente()
     {
-
-        return Clientes::all();
+        return (count(Clientes::all()) == 0)? "Ainda não há clientes nessa lista." : Clientes::all();
     }
 
-    public function postCliente(Request $request, Clientes $cliente)
+    public function getClienteById($id)
     {
-        $cliente = Clientes::create([
+        return (empty(Clientes::find($id))) ? "Cliente não existe." : Clientes::find($id);
+    }
+
+    public function postCliente(Request $request)
+    {
+        $rgsCliente = Clientes::create([
             'nome' => $request->input('nome'),
             'email' => $request->input('email'),
             'telefone' => $request->input('telefone'),
@@ -28,6 +32,29 @@ class ClientesController extends Controller
             'cidade' => $request->input('cidade'),
             'estado' => $request->input('estado'),
         ]);
-        return $cliente;
+        return $rgsCliente;
+    }
+
+    public function updateCliente(Request $request, $id)
+    {
+        if (empty(Clientes::find($id))) {
+            echo "Cliente não existe.";
+        } else {
+            $updtCliente = Clientes::findOrFail($id);
+            $updtCliente->update($request->all());
+
+            return $updtCliente;
+        }
+    }
+
+    public function deleteCliente($id)
+    {
+
+        if (empty(Clientes::find($id))) {
+            echo "Cliente não existe.";
+        } else {
+            Clientes::find($id)->delete();
+            echo "Cliente excluído com sucesso.";
+        }
     }
 }
