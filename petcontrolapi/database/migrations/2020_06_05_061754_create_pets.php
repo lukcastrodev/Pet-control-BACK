@@ -18,6 +18,7 @@ class CreatePets extends Migration
             $table->string('nome');
             $table->string('tipo');
             $table->string('raca');
+            $table->string('sexo');
             $table->string('peso');
             $table->string('cor');
             $table->text('descricao');
