@@ -53,5 +53,3 @@ Api desenvolvida em PHP(Laravel) para gerenciar e criar dados de pets,  clientes
 - localhost:8000/api/pets/{id}
 
 Utilizar endpoints no postman para efetuar os testes ou crie uma página frontend para o gerenciamento dos dados.
-
-qwdqwdkbqwjdbnqkwjbndqwed
